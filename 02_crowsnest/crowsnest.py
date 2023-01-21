@@ -21,6 +21,11 @@ def get_args():
                         metavar='word',
                         help='A word')
 
+    parser.add_argument('--where', '-w',
+                        metavar="where",
+                        default="larboard",
+                        help="larboard or starboard")
+
     return parser.parse_args()
 
 
@@ -28,6 +33,7 @@ def main():
     args = get_args()
     # word = args.positional if above is parser.add_argument('positional', ...)
     word = args.word
+    where = args.where
 
     initial_letter = word[0].upper()
     if initial_letter in "AEIOU":
@@ -36,11 +42,11 @@ def main():
         article = "a"
 
     # print("Ahoy, Captain, " + article + " " + word + " off the larboard bow!")
-    print("Ahoy, Captain, {} {} off the larboard bow!".format(article,word))
+    print("Ahoy, Captain, {} {} off the {} bow!".format(article, word, where))
 
-    # article_v2 = "a" if word[0].lower() not in "aeiou" else "an"
+    article_v2 = "a" if word[0].lower() not in "aeiou" else "an"
     # print("I repeat: " + article_v2 + " " + word + " !!")
-    # print(f"I repeat: {article_v2} {word}!!")
+    print(f"I repeat: {article_v2} {word}! {where.upper()} LOOK!")
 
 
 if __name__ == '__main__':
