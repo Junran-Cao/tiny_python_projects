@@ -17,7 +17,7 @@ def get_args():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
 
-    parser.add_argument('positional',  # this is the Namespace
+    parser.add_argument('word',  # this is the Namespace
                         metavar='word',
                         help='A word')
 
@@ -26,7 +26,8 @@ def get_args():
 
 def main():
     args = get_args()
-    word = args.positional
+    # word = args.positional if above is parser.add_argument('positional', ...)
+    word = args.word
 
     initial_letter = word[0].upper()
     if initial_letter in "AEIOU":
